@@ -80,13 +80,7 @@ export default function PrimaryNav() {
         <Anchor as={Link} borderBottom="1px" borderColor="red" py={3} px={3} to="/collaborators">
           Collaborators
         </Anchor>
-        <Anchor as={Link} borderBottom="1px" borderColor="red" py={3} px={3} to="/login">
-          Login
-        </Anchor>
-        <Anchor as={Link} borderBottom="1px" borderColor="red" py={3} px={3} to="/register">
-          Register
-        </Anchor>
-        <Anchor onClick={() => handleLogout()} borderBottom="1px" borderColor="red" py={3} px={3}>
+        <Anchor onClick={() => logout()} borderBottom="1px" borderColor="red" py={3} px={3}>
           Logout
         </Anchor>
       </Box>
