@@ -1,8 +1,14 @@
+// CHAKRA:
 import { Alert, AlertIcon, Box, Button, Flex, FormControl, FormLabel, Input } from '@chakra-ui/react'
+
+// REACT:
 import { useState } from 'react'
+
+// REACT ROUTER:
 import { Link, useNavigate } from 'react-router-dom'
 
-function FormRegister() {
+// FORM REGISTER:
+export default function FormRegister() {
   const [form, setForm] = useState({
     username: '',
     email: '',
@@ -126,5 +132,3 @@ function FormRegister() {
     </form>
   )
 }
-
-export default FormRegister

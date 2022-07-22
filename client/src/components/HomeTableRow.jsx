@@ -1,15 +1,25 @@
-import { Link as Anchor, Button, Flex, Td, Text, Tr } from '@chakra-ui/react'
-import React, { useState } from 'react'
+// CHAKRA:
+import { Link as Anchor, Box, Button, Flex, Td, Text, Tr } from '@chakra-ui/react'
+
+// REACT:
+import { useState } from 'react'
+
+// REACT ROUTER:
 import { Link } from 'react-router-dom'
+
+// REDUX:
 import { useDeleteIssueMutation, useGetIssuesQuery } from '../redux/services/issues'
+
+// COMPONENTS:
 import IssuesEdit from './IssuesEdit'
 
-function HomeTableRow({ issue }) {
+// HOME TABLE ROW:
+export default function HomeTableRow({ issue }) {
   const [deleteIssue] = useDeleteIssueMutation()
   const [showEditForm, setShowEditForm] = useState(false)
 
   return (
-    <>
+    <Box>
       {showEditForm ? (
         <Tr key={issue.id}>
           <Td>
@@ -43,8 +53,6 @@ function HomeTableRow({ issue }) {
           </Td>
         </Tr>
       )}
-    </>
+    </Box>
   )
 }
-
-export default HomeTableRow

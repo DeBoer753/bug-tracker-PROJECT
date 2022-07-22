@@ -1,29 +1,30 @@
 // CHAKRA:
 import {
+  Alert,
+  AlertIcon,
   Box,
   Button,
-  Container,
   Flex,
   FormControl,
   FormLabel,
   Heading,
   Input,
   Select,
-  StackDivider,
   Textarea,
-  VStack,
-  Wrap,
 } from '@chakra-ui/react'
 
 // REACT:
 import { useState } from 'react'
 import { useAddNewProjectMutation } from '../redux/services/projects'
 
+// COMPONENTS:
 import ProjectDisplay from './ProjectDisplay'
 
 // PROJECT:
 export function Project() {
   const [addNewProject] = useAddNewProjectMutation()
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const [form, setForm] = useState({
     name: '',
     description: '',
@@ -57,14 +58,17 @@ export function Project() {
       </Box>
       <form onSubmit={handleSubmit}>
         <FormControl border="1px" borderColor="red" mb={5}>
-          <Heading fontSize={17}>Create a Project:</Heading>
-          <FormLabel htmlFor="name">Name</FormLabel>
+          <Heading fontSize={17} mb={5}>
+            Create a Project:
+          </Heading>
+          <FormLabel htmlFor="name">Project Name</FormLabel>
           <Input
+            mb={5}
             id="name"
             type="name"
             required
             value={form.name}
-            placeholder="Project name here."
+            placeholder="Enter project name"
             onChange={(e) => updateProject('name', e.target.value)}
           />
           <FormLabel htmlFor="description">Description</FormLabel>
@@ -73,12 +77,13 @@ export function Project() {
             required
             value={form.description}
             onChange={(e) => updateProject('description', e.target.value)}
-            placeholder="Write a description for your project here"
+            placeholder="Enter project description here..."
           />
-          <FormLabel>Operational Status</FormLabel>
+          <FormLabel mb={5}>Operational Status</FormLabel>
           <Select
             border="1px"
             borderColor="red"
+            mb={5}
             placeholder="Select progress"
             value={form.status}
             onChange={(e) => updateProject('status', e.target.value)}
@@ -87,13 +92,15 @@ export function Project() {
             <option value="In Progress">In Progress</option>
             <option value="Finished">Finished</option>
           </Select>
+          <Button type="submit" h="2rem" size="lg" bg="green">
+            Submit
+          </Button>
         </FormControl>
-        <Button type="submit" h="2rem" size="lg" bg="green" mb={5}>
-          Submit
-        </Button>
       </form>
       <Box border="1px" borderColor="red">
-        <Heading fontSize={17}>Projects List:</Heading>
+        <Heading fontSize={17} mb={2}>
+          Projects List:
+        </Heading>
         <ProjectDisplay />
       </Box>
     </Box>

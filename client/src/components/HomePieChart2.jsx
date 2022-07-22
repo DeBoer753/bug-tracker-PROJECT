@@ -1,14 +1,21 @@
-import { Heading } from '@chakra-ui/react'
-import React from 'react'
+// CHAKRA:
+import { Box, Heading } from '@chakra-ui/react'
+
+// RECHARTS:
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
+
+// REDUX:
 import { useGetIssuesQuery } from '../redux/services/issues'
 
+// Recharts Pie Data ------------->
 const pieData = [
   { name: 'Open', value: 20 },
   { name: 'In Progress', value: 15 },
   { name: 'Close', value: 30 },
 ]
+// ----<
 
+// Recharts Tools  ------------->
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 
 const RADIAN = Math.PI / 180
@@ -23,15 +30,17 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
     </text>
   )
 }
+// ----<
 
-function HomePieChart2() {
+// HOME PIE CHART 2:
+export default function HomePieChart2() {
   const { data } = useGetIssuesQuery()
   const pieData = [
     { name: 'Open', value: data?.filter((issue) => issue.status === 'Open' || issue.status === 'open').length },
     { name: 'Closed', value: data?.filter((issue) => issue.status === 'Closed' || issue.status === 'closed').length },
   ]
   return (
-    <>
+    <Box>
       <Heading size="md" textAlign="center" my={2}>
         Status Levels by Issues
       </Heading>
@@ -46,8 +55,6 @@ function HomePieChart2() {
           <Tooltip />
         </PieChart>
       </ResponsiveContainer>
-    </>
+    </Box>
   )
 }
-
-export default HomePieChart2

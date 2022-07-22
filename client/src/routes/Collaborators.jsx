@@ -1,5 +1,7 @@
 // CHAKRA:
 import { Box, Button, Container, Flex, Heading, Image, Link, Text, Wrap } from '@chakra-ui/react'
+
+// REDUX:
 import { useGetCurrentUserQuery } from '../redux/services/user'
 
 // IMGS:

@@ -1,21 +1,12 @@
-import React, { useState } from 'react'
+// CHAKRA:
+import { Box, Flex } from '@chakra-ui/react'
 
-import {
-  Box,
-  Button,
-  Flex,
-  Table,
-  TableCaption,
-  TableContainer,
-  Tbody,
-  Td,
-  Text,
-  Th,
-  Thead,
-  Tr,
-} from '@chakra-ui/react'
+// REACT:
+import { useState } from 'react'
 
+// RECHARTS:
 import { ResponsiveContainer } from 'recharts'
+
 // REDUX
 import { Link } from 'react-router-dom'
 

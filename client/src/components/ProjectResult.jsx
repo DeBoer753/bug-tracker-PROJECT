@@ -1,3 +1,4 @@
+// CHAKRA:
 import {
   Accordion,
   AccordionButton,
@@ -12,12 +13,19 @@ import {
   Text,
   Wrap,
 } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+
+// REACT:
 import { useState } from 'react'
+
+// REACT ROUTER:
+import { Link } from 'react-router-dom'
+
+// COMPONENTS:
 import { useDeleteProjectMutation } from '../redux/services/projects'
 import ProjectEdit from './ProjectEdit'
 
-function ProjectResult({ project }) {
+// PROJECT RESULT"
+export default function ProjectResult({ project }) {
   const [deleteProject] = useDeleteProjectMutation()
   const [showEditForm, setShowEditForm] = useState(false)
   return (
@@ -43,7 +51,7 @@ function ProjectResult({ project }) {
                 <Text>0 Contributions</Text>
                 <Text>{project.status}</Text>
               </Box>
-              <Flex gap="2" justifyContent={'center'}>
+              <Flex gap="2" justifyContent={'center'} mb={2}>
                 <Button size="sm" aria-label="icon" onClick={() => setShowEditForm(true)}>
                   📝
                 </Button>
@@ -58,8 +66,6 @@ function ProjectResult({ project }) {
     </Box>
   )
 }
-
-export default ProjectResult
 
 // WITH OR WITHOUT ACCORDION??
 

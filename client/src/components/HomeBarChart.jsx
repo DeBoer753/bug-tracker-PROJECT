@@ -1,9 +1,15 @@
-import { Heading } from '@chakra-ui/react'
-import React, { useState } from 'react'
+// CHAKRA:
+import { Box, Heading } from '@chakra-ui/react'
+
+// REACHARTS:
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+
+// REDUX:
 import { useGetProjectsQuery } from '../redux/services/projects'
 
-function HomeBarChart() {
+// HOME BAR CHART:
+export default function HomeBarChart() {
+  // Data Tools ------------->
   const { data } = useGetProjectsQuery()
   const barData = data?.map((data) => {
     return {
@@ -13,9 +19,10 @@ function HomeBarChart() {
       high: data.Issues.filter((issue) => issue.priority === 'High' || issue.priority === 'high').length,
     }
   })
+  // ----<
 
   return (
-    <>
+    <Box>
       <Heading size="md" textAlign="center" my={2}>
         Issue Priority Levels by Project
       </Heading>
@@ -41,8 +48,6 @@ function HomeBarChart() {
           <Bar dataKey="high" stackId="a" fill="#DB5A42" />
         </BarChart>
       </ResponsiveContainer>
-    </>
+    </Box>
   )
 }
-
-export default HomeBarChart

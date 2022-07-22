@@ -1,6 +1,10 @@
-import { Link } from 'react-router-dom'
+// CHAKRA:
 import { Link as Anchor, Box, Container, Image, Text } from '@chakra-ui/react'
 
+// REACT ROUTER:
+import { Link } from 'react-router-dom'
+
+// SECONDARY NAV:
 export default function SecondaryNav() {
   return (
     <Container>

@@ -1,8 +1,11 @@
-import React from 'react'
+// REACT ROUTER:
 import { Navigate } from 'react-router'
+
+// REDUX:
 import { useGetCurrentUserQuery } from '../redux/services/user'
 
-function Protected({ children }) {
+// PROTECTED:
+export default function Protected({ children }) {
   const { data, isUninitialized, isLoading, isFetching, isError, error } = useGetCurrentUserQuery()
 
   // checking
@@ -19,5 +22,3 @@ function Protected({ children }) {
   // checked & logged in
   return children
 }
-
-export default Protected

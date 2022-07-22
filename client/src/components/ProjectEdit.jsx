@@ -1,9 +1,14 @@
-import { Button, Flex, FormControl, Input, Select } from '@chakra-ui/react'
+// CHAKRA:
+import { Box, Button, Flex, FormControl, Input, Select } from '@chakra-ui/react'
 
+// REACT:
 import { useState } from 'react'
+
+// COMPONENTS:
 import { useUpdateProjectMutation } from '../redux/services/projects'
 
-function ProjectEdit({ project, onSuccess }) {
+// PROJECT EDIT:
+export default function ProjectEdit({ project, onSuccess }) {
   const [updateProject] = useUpdateProjectMutation()
   const [form, setForm] = useState({
     name: project.text,
@@ -28,7 +33,7 @@ function ProjectEdit({ project, onSuccess }) {
   }
 
   return (
-    <>
+    <Box>
       <form onSubmit={handleSubmit} style={{ width: '100%' }}>
         <Flex alignItems="flex-end" justifyContent="space-between" gap="2" w="100%">
           <FormControl flexGrow="0" flexBasis="50%" w="auto">
@@ -55,8 +60,6 @@ function ProjectEdit({ project, onSuccess }) {
           </Button>
         </Flex>
       </form>
-    </>
+    </Box>
   )
 }
-
-export default ProjectEdit

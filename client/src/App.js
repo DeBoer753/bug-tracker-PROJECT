@@ -11,18 +11,21 @@ import Register from './routes/Register'
 import Projects from './routes/Projects'
 import Issues from './routes/Issues'
 import Collaborators from './routes/Collaborators'
+import ProjectPage from './routes/ProjectPage'
+import IssuePage from './routes/IssuePage'
+
+// REDUX:
+import { useGetCurrentUserQuery } from './redux/services/user'
 
 // COMPONENTS:
 import PrimaryNav from './components/PrimaryNav'
 import SiteTitle from './components/SiteTitle'
-
-// STYLING
-import './App.css'
 import Protected from './components/Protected'
-import { useGetCurrentUserQuery } from './redux/services/user'
-import ProjectPage from './routes/ProjectPage'
-import IssuePage from './routes/IssuePage'
 
+// CSS:
+import './App.css'
+
+// App Routes  ------------->
 function AppRoutes() {
   return (
     <Routes>
@@ -79,6 +82,8 @@ function AppRoutes() {
     </Routes>
   )
 }
+// ----<
+
 // APP:
 export default function App() {
   const { data } = useGetCurrentUserQuery()

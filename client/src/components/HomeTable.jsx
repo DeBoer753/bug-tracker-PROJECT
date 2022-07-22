@@ -1,24 +1,17 @@
-import React from 'react'
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Table,
-  TableCaption,
-  TableContainer,
-  Tbody,
-  Td,
-  Text,
-  Th,
-  Thead,
-  Tr,
-} from '@chakra-ui/react'
+// CHAKRA:
+import { Box, Table, TableCaption, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react'
+
+// REDUX:
 import { useGetIssuesQuery } from '../redux/services/issues'
+
+// COMPONENTS:
 import HomeTableRow from './HomeTableRow'
 
-function HomeTable() {
+export default function HomeTable() {
+  // Data Tools ------------->
   const { data, isError, error } = useGetIssuesQuery()
+  // ----<
+
   return (
     <Box border="1px" borderColor="red" w="100%" position="relative">
       <TableContainer bg="lightgrey" w="100%" position="relative">
@@ -43,5 +36,3 @@ function HomeTable() {
     </Box>
   )
 }
-
-export default HomeTable

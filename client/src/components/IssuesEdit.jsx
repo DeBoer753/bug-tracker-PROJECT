@@ -1,9 +1,14 @@
+// CHAKRA:
 import { Button, Flex, FormControl, Input, Select } from '@chakra-ui/react'
 
+// REACT:
 import { useState } from 'react'
+
+// REDUX:
 import { useUpdateIssueMutation } from '../redux/services/issues'
 
-function IssuesEdit({ issue, onSuccess }) {
+// ISSUE EDIT:
+export default function IssuesEdit({ issue, onSuccess }) {
   const [updateIssues] = useUpdateIssueMutation()
   const [form, setForm] = useState({
     name: issue.name,
@@ -82,5 +87,3 @@ function IssuesEdit({ issue, onSuccess }) {
     </>
   )
 }
-
-export default IssuesEdit

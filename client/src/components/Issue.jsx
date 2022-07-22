@@ -1,10 +1,10 @@
 // CHAKRA:
-
 import {
   Alert,
   AlertIcon,
   Box,
   Button,
+  Flex,
   FormControl,
   FormLabel,
   Heading,
@@ -13,8 +13,14 @@ import {
   Text,
   Textarea,
 } from '@chakra-ui/react'
+
+// REACT:
 import { useState } from 'react'
+
+// REACT ROUTER:
 import { useNavigate } from 'react-router-dom'
+
+// REDUX:
 import { useAddNewIssueMutation } from '../redux/services/issues'
 import { useGetProjectsQuery } from '../redux/services/projects'
 
@@ -69,27 +75,18 @@ export default function Issue() {
         <Heading fontSize={25}>Issues</Heading>
       </Box>
       <form onSubmit={handleSubmit}>
-        {error && (
-          <Alert status="error">
-            <AlertIcon /> {error}
-          </Alert>
-        )}
-        {success && (
-          <Alert status="success">
-            <AlertIcon /> {success}
-          </Alert>
-        )}
-
         <FormControl border="1px" borderColor="red" mb={5}>
-          <Heading fontSize={17}>Create an Issue:</Heading>
-          <FormLabel htmlFor="project">Project Name</FormLabel>
+          <Heading fontSize={17} mb={5}>
+            Create an Issue:
+          </Heading>
+          <FormLabel htmlFor="project">Choose project</FormLabel>
           <Select
             border="1px"
             borderColor="red"
             mb={5}
             id="project"
             required
-            placeholder="Please Select a Project"
+            placeholder="Select a Project"
             // value={project}
             onChange={(e) => setProject(e.target.value)}
           >
@@ -103,6 +100,7 @@ export default function Issue() {
           <Input
             border="1px"
             borderColor="red"
+            placeholder="Enter Issue Title"
             id="name"
             type="name"
             required
@@ -145,15 +143,28 @@ export default function Issue() {
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </Select>
-          <Button type="submit" h="2rem" size="lg" bg="green">
-            Add New Issue
-          </Button>
+          <Flex justifyContent={'space-between'} border="1px" borderColor="red">
+            <Button type="submit" bg="green">
+              Add New Issue
+            </Button>
+            <Box w="50%" alignContent={'center'}>
+              {error && (
+                <Alert status="error">
+                  <AlertIcon /> {error}
+                </Alert>
+              )}
+              {success && (
+                <Alert status="success">
+                  <AlertIcon /> {success}
+                </Alert>
+              )}
+            </Box>
+          </Flex>
         </FormControl>
       </form>
       <Box border="1px" borderColor="red">
         <Heading fontSize={17}>Issue Selected:</Heading>
         <Box>
-          <Text>PetMates</Text>
           <Text>PetMates</Text>
         </Box>
       </Box>
