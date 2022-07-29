@@ -15,7 +15,7 @@ function ProfileImage() {
     data.append('upload_preset', 'lpejrzfn')
     setLoading(true)
 
-    const res = await fetch(`http://api.cloudinary.com/v1_1/dzxuqjqec/image/upload`, {
+    const res = await fetch(`https://api.cloudinary.com/v1_1/dzxuqjqec/image/upload`, {
       method: 'POST',
       body: data,
     })
